@@ -195,6 +195,9 @@
   <ItemGroup>
     <ClCompile Include="source\dependency\Module.cpp" />
     <ClCompile Include="source\dependency\SDL.cpp" />
+    <ClCompile Include="source\ecs\component\ComponentTransform.cpp" />
+    <ClCompile Include="source\ecs\component\ComponentTypeRegistry.cpp" />
+    <ClCompile Include="source\ecs\Core.cpp" />
     <ClCompile Include="source\ecs\Entity.cpp" />
     <ClCompile Include="source\Engine.cpp" />
     <ClCompile Include="source\input\InputWatcher.cpp" />
@@ -222,8 +225,12 @@
   <ItemGroup>
     <ClInclude Include="include\dependency\Module.hpp" />
     <ClInclude Include="include\dependency\SDL.hpp" />
-    <ClInclude Include="include\ecs\Component.hpp" />
+    <ClInclude Include="include\ecs\component\Component.hpp" />
+    <ClInclude Include="include\ecs\component\ComponentTransform.hpp" />
+    <ClInclude Include="include\ecs\component\ComponentType.hpp" />
+    <ClInclude Include="include\ecs\component\ComponentTypeRegistry.hpp" />
     <ClInclude Include="include\ecs\Core.hpp" />
+    <ClInclude Include="include\ecs\EcsBudget.h" />
     <ClInclude Include="include\ecs\Entity.hpp" />
     <ClInclude Include="include\Engine.hpp" />
     <ClInclude Include="include\input\Action.hpp" />

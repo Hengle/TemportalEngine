@@ -70,6 +70,12 @@
     <Filter Include="Source Files\ecs">
       <UniqueIdentifier>{bb9121ce-a6b3-44f5-ae83-3c68ded838b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ecs\component">
+      <UniqueIdentifier>{e72d0e85-2d10-4e03-9bab-b26fe0febad6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ecs\component">
+      <UniqueIdentifier>{15519ea8-b0e8-4d62-ad10-319ab39869a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Window.cpp">
@@ -146,6 +152,15 @@
     </ClCompile>
     <ClCompile Include="source\ecs\Entity.cpp">
       <Filter>Source Files\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ecs\component\ComponentTypeRegistry.cpp">
+      <Filter>Source Files\ecs\component</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ecs\Core.cpp">
+      <Filter>Source Files\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ecs\component\ComponentTransform.cpp">
+      <Filter>Source Files\ecs\component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -260,9 +275,6 @@
     <ClInclude Include="include\dependency\Module.hpp">
       <Filter>Header Files\dependency</Filter>
     </ClInclude>
-    <ClInclude Include="include\ecs\Component.hpp">
-      <Filter>Header Files\ecs</Filter>
-    </ClInclude>
     <ClInclude Include="include\utility\Guid.hpp">
       <Filter>Header Files\utility</Filter>
     </ClInclude>
@@ -274,6 +286,21 @@
     </ClInclude>
     <ClInclude Include="include\memory\ObjectPool.hpp">
       <Filter>Header Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\component\ComponentTypeRegistry.hpp">
+      <Filter>Header Files\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\component\Component.hpp">
+      <Filter>Header Files\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\EcsBudget.h">
+      <Filter>Header Files\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\component\ComponentType.hpp">
+      <Filter>Header Files\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\component\ComponentTransform.hpp">
+      <Filter>Header Files\ecs\component</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

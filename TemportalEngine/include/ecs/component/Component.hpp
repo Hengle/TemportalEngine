@@ -7,6 +7,7 @@
 // Engine ---------------------------------------------------------------------
 #include "types/integer.h"
 #include "utility/Guid.hpp"
+#include "ecs/component/ComponentType.hpp"
 
 // ----------------------------------------------------------------------------
 NS_ECS
@@ -24,22 +25,6 @@ struct TEMPORTALENGINE_API Component
 	utility::Guid mIdEntity;
 
 };
-
-//uSize ComponentTypeCount;
-//uSize const ComponentSize[1];
-//
-//template <typename TComponent>
-//constexpr bool const registerComponent(uSize &idOut)
-//{
-//	static_assert(
-//		std::is_base_of<Component, TComponent>::value
-//		"TComponent must derive from ecs::Component."
-//	);
-//
-//	sizeof(TComponent);
-//
-//	return false;
-//}
 
 NS_END
 // ----------------------------------------------------------------------------

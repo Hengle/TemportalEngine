@@ -9,6 +9,7 @@
 #include "network/NetworkService.hpp"
 #include <optional>
 #include <typeinfo>
+#include "ecs/Core.hpp"
 
 #include "logging/Logger.hpp"
 
