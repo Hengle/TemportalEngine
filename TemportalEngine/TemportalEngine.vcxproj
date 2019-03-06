@@ -195,6 +195,7 @@
   <ItemGroup>
     <ClCompile Include="source\dependency\Module.cpp" />
     <ClCompile Include="source\dependency\SDL.cpp" />
+    <ClCompile Include="source\ecs\Entity.cpp" />
     <ClCompile Include="source\Engine.cpp" />
     <ClCompile Include="source\input\InputWatcher.cpp" />
     <ClCompile Include="source\input\Queue.cpp" />
@@ -222,6 +223,8 @@
     <ClInclude Include="include\dependency\Module.hpp" />
     <ClInclude Include="include\dependency\SDL.hpp" />
     <ClInclude Include="include\ecs\Component.hpp" />
+    <ClInclude Include="include\ecs\Core.hpp" />
+    <ClInclude Include="include\ecs\Entity.hpp" />
     <ClInclude Include="include\Engine.hpp" />
     <ClInclude Include="include\input\Action.hpp" />
     <ClInclude Include="include\input\Event.hpp" />
@@ -235,6 +238,7 @@
     <ClInclude Include="include\math\Vector.hpp" />
     <ClInclude Include="include\memory\alloc.h" />
     <ClInclude Include="include\memory\MemoryManager.h" />
+    <ClInclude Include="include\memory\ObjectPool.hpp" />
     <ClInclude Include="include\memory\Pool.h" />
     <ClInclude Include="include\Namespace.hpp" />
     <ClInclude Include="include\Api.h" />

@@ -12,7 +12,7 @@ NS_UTILITY
 
 #define GUID_STRING_LENGTH 36
 
-class Guid
+class TEMPORTALENGINE_API Guid
 {
 
 private:
@@ -30,25 +30,27 @@ private:
 	constexpr Guid(GuidData const &data);
 
 public:
-	static constexpr Guid fromString(unsigned char stringOut[GUID_STRING_LENGTH]);
-	static constexpr int compare(Guid const &a, Guid const &b);
+	static Guid fromString(unsigned char stringOut[GUID_STRING_LENGTH]);
+	static int compare(Guid const &a, Guid const &b);
 
 	constexpr Guid();
 
 	constexpr Guid(Guid const &other);
 
 	// 8-4-4-4-12
-	constexpr bool toString(unsigned char stringOut[GUID_STRING_LENGTH]) const;
+	bool toString(unsigned char stringOut[GUID_STRING_LENGTH]) const;
 
-	constexpr bool const isValid() const;
+	bool const isValid() const;
 
-	constexpr bool const operator<(Guid const &other) const;
+	bool const operator<(Guid const &other) const;
 	
-	constexpr bool const operator==(Guid const &other) const;
+	bool const operator==(Guid const &other) const;
 
-	constexpr bool const operator!=(Guid const &other) const;
+	bool const operator!=(Guid const &other) const;
 
-	constexpr bool const operator>(Guid const &other) const;
+	bool const operator>(Guid const &other) const;
+
+	void operator=(Guid const &other);
 
 	size_t const hash() const;
 

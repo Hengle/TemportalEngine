@@ -11,7 +11,7 @@
 
 using namespace utility;
 
-constexpr utility::Guid Guid::fromString(unsigned char stringOut[GUID_STRING_LENGTH])
+utility::Guid Guid::fromString(unsigned char stringOut[GUID_STRING_LENGTH])
 {
 	GuidData data;
 #ifdef _WIN32
@@ -25,7 +25,7 @@ constexpr utility::Guid Guid::fromString(unsigned char stringOut[GUID_STRING_LEN
 	return guid;
 }
 
-constexpr int Guid::compare(Guid const &a, Guid const &b)
+int Guid::compare(Guid const &a, Guid const &b)
 {
 #ifdef _WIN32
 	UUID* uuidA = (UUID*)(&a.mData);
@@ -55,7 +55,7 @@ constexpr Guid::Guid(utility::Guid const &other)
 }
 
 // 8-4-4-4-12
-constexpr bool Guid::toString(unsigned char stringOut[GUID_STRING_LENGTH]) const
+bool Guid::toString(unsigned char stringOut[GUID_STRING_LENGTH]) const
 {
 	GuidData data = mData;
 #ifdef _WIN32
@@ -67,29 +67,34 @@ constexpr bool Guid::toString(unsigned char stringOut[GUID_STRING_LENGTH]) const
 	return false;
 }
 
-constexpr bool const Guid::isValid() const
+bool const Guid::isValid() const
 {
 	return *this != Guid();
 }
 
-constexpr bool const Guid::operator<(Guid const &other) const
+bool const Guid::operator<(Guid const &other) const
 {
 	return Guid::compare(*this, other) < 0;
 }
 
-constexpr bool const Guid::operator==(Guid const &other) const
+bool const Guid::operator==(Guid const &other) const
 {
 	return Guid::compare(*this, other) == 0;
 }
 
-constexpr bool const Guid::operator!=(Guid const &other) const
+bool const Guid::operator!=(Guid const &other) const
 {
 	return !(*this == other);
 }
 
-constexpr bool const Guid::operator>(Guid const &other) const
+bool const Guid::operator>(Guid const &other) const
 {
 	return Guid::compare(*this, other) > 0;
+}
+
+void Guid::operator=(Guid const &other)
+{
+	memcpy_s((void*)&mData, sizeof(GuidData), (void*)&other.mData, sizeof(GuidData));
 }
 
 size_t const Guid::hash() const

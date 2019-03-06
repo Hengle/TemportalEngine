@@ -67,6 +67,9 @@
     <Filter Include="Source Files\utility">
       <UniqueIdentifier>{8d1a42c3-81c8-4936-a95b-47b93807509a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ecs">
+      <UniqueIdentifier>{bb9121ce-a6b3-44f5-ae83-3c68ded838b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Window.cpp">
@@ -140,6 +143,9 @@
     </ClCompile>
     <ClCompile Include="source\utility\Guid.cpp">
       <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ecs\Entity.cpp">
+      <Filter>Source Files\ecs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +265,15 @@
     </ClInclude>
     <ClInclude Include="include\utility\Guid.hpp">
       <Filter>Header Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\Entity.hpp">
+      <Filter>Header Files\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\Core.hpp">
+      <Filter>Header Files\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\memory\ObjectPool.hpp">
+      <Filter>Header Files\memory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
