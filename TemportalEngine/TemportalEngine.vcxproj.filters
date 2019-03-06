@@ -58,6 +58,15 @@
     <Filter Include="Source Files\network">
       <UniqueIdentifier>{925621ff-0a51-40b9-9fc5-0ae877aa7b5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ecs">
+      <UniqueIdentifier>{253f037c-0326-45f4-8226-dc3af772100c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utility">
+      <UniqueIdentifier>{9a68cf6d-da11-4315-9f23-447b705ee571}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utility">
+      <UniqueIdentifier>{8d1a42c3-81c8-4936-a95b-47b93807509a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Window.cpp">
@@ -128,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="source\dependency\Module.cpp">
       <Filter>Source Files\dependency</Filter>
+    </ClCompile>
+    <ClCompile Include="source\utility\Guid.cpp">
+      <Filter>Source Files\utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -239,11 +251,14 @@
     <ClInclude Include="include\Namespace.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\math\VectorType.hpp">
-      <Filter>Header Files\math</Filter>
-    </ClInclude>
     <ClInclude Include="include\dependency\Module.hpp">
       <Filter>Header Files\dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\Component.hpp">
+      <Filter>Header Files\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utility\Guid.hpp">
+      <Filter>Header Files\utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

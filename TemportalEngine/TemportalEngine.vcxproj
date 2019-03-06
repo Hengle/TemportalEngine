@@ -215,11 +215,13 @@
     <ClCompile Include="source\thread\MutexLock.cpp" />
     <ClCompile Include="source\thread\Thread.cpp" />
     <ClCompile Include="source\thread\ThreadId.c" />
+    <ClCompile Include="source\utility\Guid.cpp" />
     <ClCompile Include="source\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\dependency\Module.hpp" />
     <ClInclude Include="include\dependency\SDL.hpp" />
+    <ClInclude Include="include\ecs\Component.hpp" />
     <ClInclude Include="include\Engine.hpp" />
     <ClInclude Include="include\input\Action.hpp" />
     <ClInclude Include="include\input\Event.hpp" />
@@ -231,7 +233,6 @@
     <ClInclude Include="include\logging\Logger.hpp" />
     <ClInclude Include="include\math\compare.h" />
     <ClInclude Include="include\math\Vector.hpp" />
-    <ClInclude Include="include\math\VectorType.hpp" />
     <ClInclude Include="include\memory\alloc.h" />
     <ClInclude Include="include\memory\MemoryManager.h" />
     <ClInclude Include="include\memory\Pool.h" />
@@ -255,6 +256,7 @@
     <ClInclude Include="include\types\arch.h" />
     <ClInclude Include="include\types\integer.h" />
     <ClInclude Include="include\types\real.h" />
+    <ClInclude Include="include\utility\Guid.hpp" />
     <ClInclude Include="include\Window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

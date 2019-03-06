@@ -12,7 +12,6 @@
 #include <type_traits>
 
 // Engine ---------------------------------------------------------------------
-#include "math/VectorType.hpp"
 #include "types/integer.h"
 #include "types/real.h"
 
