@@ -6,7 +6,6 @@
 
 // Engine ---------------------------------------------------------------------
 #include "types/integer.h"
-#include "memory/Pool.h"
 
 //-----------------------------------------------------------------------------
 NS_MEMORY
@@ -18,8 +17,12 @@ class ObjectPool
 private:
 	struct Node
 	{
+		ui8 mHasPrevious;
 		uSize mIndexPrevious;
+
+		ui8 mHasNext;
 		uSize mIndexNext;
+		
 		ui8 mInUse;
 	};
 	
@@ -33,27 +36,26 @@ private:
 	void reset()
 	{
 		mObjectCount = 0;
+		memset(mpObjects, 0, ObjectMaxCount * sizeof(TObject));
 
-		char* headerLocation = (char*)a3_mem_pool_getFirstHeader(pPool);
-		char* prevLocation = 0;
-		a3_mem_Pool_ObjectHeader* header = (a3_mem_Pool_ObjectHeader*)headerLocation;
-
-		pPool->mpHeaderFreeHead = header;
-		pPool->mpHeaderUsedHead = 0;
 		for (uSize i = 0; i < ObjectMaxCount; i++)
 		{
-			header->inUse = 0;
-			header->prev = (a3_mem_Pool_ObjectHeader*)prevLocation;
+			Node &header = mpNodes[i];
+
+			//header = 0;
+
+			/*header.inUse = 0;
+			header.mIndexPrevious = i - 1;
+			header.prev = (a3_mem_Pool_ObjectHeader*)prevLocation;
 			if (header->prev != 0)
 				header->prev->next = header;
 			header->next = 0;
 
 			void* objectLocation = header + 1;
-			memset(objectLocation, 0, pPool->mSizePerObject);
 
 			prevLocation = headerLocation;
 			headerLocation += sizeof(a3_mem_Pool_ObjectHeader) + pPool->mSizePerObject;
-			header = (a3_mem_Pool_ObjectHeader*)headerLocation;
+			header = (a3_mem_Pool_ObjectHeader*)headerLocation;*/
 		}
 
 	}
@@ -62,18 +64,12 @@ public:
 
 	ObjectPool()
 	{
-		reset(pPool);
+		reset();
 	}
 
 	
 
 };
-
-extern a3_mem_Pool* a3_mem_pool_initialize(void* poolLocation, void* contentStart, ui32 const maxCount, ui32 const sizePerObject);
-extern void* a3_mem_pool_alloc(a3_mem_Pool *pPool);
-extern void a3_mem_pool_dealloc(a3_mem_Pool *pPool, void* object);
-inline extern void* a3_mem_pool_getObjectAtIndex(a3_mem_Pool *pPool, ui32 i);
-extern ui8 a3_mem_pool_getIteratorNext(a3_mem_Pool const *pPool, void** obj, ui32 *i);
 
 NS_END
 //-----------------------------------------------------------------------------
