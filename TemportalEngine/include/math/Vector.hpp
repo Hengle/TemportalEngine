@@ -6,6 +6,7 @@
 
 // Libraries ------------------------------------------------------------------
 #include <algorithm>
+#include <array>
 #include <cassert>
 #include <cmath>
 #include <string.h> // memset/memcpy
@@ -17,6 +18,8 @@
 
 // ----------------------------------------------------------------------------
 NS_MATH
+
+#define VectorUseStdArray 0
 
 /**
 * Helper class for vector math. Staticly defined constant memory using a given
@@ -45,7 +48,11 @@ private:
 
 	// NOTE: Not using std::array due to linker issues.
 	/** The actual components/data of the vector. */
+#ifndef VectorUseStdArray
 	TValue mValues[TDimension];
+#else
+	std::array<TValue, TDimension> mValues;
+#endif
 
 public:
 
@@ -54,7 +61,11 @@ public:
 
 	constexpr Vector()
 	{
+#ifndef VectorUseStdArray
 		memset(mValues, 0, TDimension);
+#else
+		mValues.fill(0);
+#endif
 	}
 
 	/**
@@ -62,10 +73,13 @@ public:
 	*	Length must match dimension of the vector.
 	* Inverse of toArray(TValue[]).
 	*/
+#ifndef VectorUseStdArray
 	constexpr Vector(TValue values[TDimension])
 	{
 		memcpy_s(mValues, TDimension, values, TDimension);
 	}
+#else
+#endif
 
 	/**
 	* Initialized using the standard initializer list format
@@ -80,7 +94,11 @@ public:
 	*/
 	constexpr Vector(VectorFormat const &other)
 	{
+#ifndef VectorUseStdArray
 		memcpy_s(mValues, TDimension, other.mValues, TDimension);
+#else
+		std::copy(std::begin(other.mValues), std::end(other.mValues), std::begin(mValues));
+#endif
 	}
 
 	/**
@@ -99,7 +117,11 @@ public:
 	template <ui32 TDimensionOther>
 	constexpr Vector(Vector<TValue, TDimensionOther> const &other)
 	{
+#ifndef VectorUseStdArray
 		memset(mValues, 0, TDimension);
+#else
+		mValues.fill(0);
+#endif
 		other.toArray(mValues);
 	}
 
@@ -126,10 +148,18 @@ public:
 	* Copies data to an array with length equal to dimension count.
 	* Inverse of Vector(TValue[]) constructor.
 	*/
+#ifndef VectorUseStdArray
 	constexpr void toArray(TValue out[TDimension]) const
 	{
 		memcpy_s(out, TDimension, mValues, TDimension);
 	}
+#else
+	template <ui32 TDimensionOther>
+	constexpr void toArray(std::array<TValue, TDimensionOther> out) const
+	{
+		std::copy(std::begin(mValues), std::end(mValues), std::begin(out));
+	}
+#endif
 
 	/**
 	* Set a value at a given dimension index. Can modify this value
