@@ -79,6 +79,24 @@
     <Filter Include="Source Files\network\client">
       <UniqueIdentifier>{f3b53af8-50e5-4cc1-9a1d-7a829c52a746}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ecs">
+      <UniqueIdentifier>{0a957dbb-d46d-4a6d-a732-05341955821e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ecs\component">
+      <UniqueIdentifier>{93a9aadd-db52-4049-b1a5-129ab59e12c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ecs">
+      <UniqueIdentifier>{52c485c1-81a4-4518-95d0-23671bb012bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ecs\component">
+      <UniqueIdentifier>{e8887cf7-b776-4a6c-92d7-c3162afc7452}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utility">
+      <UniqueIdentifier>{21ea4d74-8595-4720-b27c-b17ee9a82890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utility">
+      <UniqueIdentifier>{09937f00-5361-4233-919a-395710477b87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Window.cpp">
@@ -159,20 +177,20 @@
     <ClCompile Include="source\network\client\PacketConnectionRejected.cpp">
       <Filter>Source Files\network\client</Filter>
     </ClCompile>
-    <ClCompile Include="source\utility\Guid.cpp">
-      <Filter>Source Files\utility</Filter>
+    <ClCompile Include="source\ecs\Core.cpp">
+      <Filter>Source Files\ecs</Filter>
     </ClCompile>
     <ClCompile Include="source\ecs\Entity.cpp">
       <Filter>Source Files\ecs</Filter>
     </ClCompile>
+    <ClCompile Include="source\ecs\component\ComponentTransform.cpp">
+      <Filter>Source Files\ecs\component</Filter>
+    </ClCompile>
     <ClCompile Include="source\ecs\component\ComponentTypeRegistry.cpp">
       <Filter>Source Files\ecs\component</Filter>
     </ClCompile>
-    <ClCompile Include="source\ecs\Core.cpp">
-      <Filter>Source Files\ecs</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ecs\component\ComponentTransform.cpp">
-      <Filter>Source Files\ecs\component</Filter>
+    <ClCompile Include="source\utility\Guid.cpp">
+      <Filter>Source Files\utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -254,9 +272,6 @@
     <ClInclude Include="include\Namespace.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\math\VectorType.hpp">
-      <Filter>Header Files\math</Filter>
-    </ClInclude>
     <ClInclude Include="include\dependency\Module.hpp">
       <Filter>Header Files\dependency</Filter>
     </ClInclude>
@@ -308,8 +323,11 @@
     <ClInclude Include="include\network\client\PacketConnectionRejected.hpp">
       <Filter>Header Files\network\client</Filter>
     </ClInclude>
-    <ClInclude Include="include\utility\Guid.hpp">
-      <Filter>Header Files\utility</Filter>
+    <ClInclude Include="include\memory\ObjectPool.hpp">
+      <Filter>Header Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\EcsBudget.h">
+      <Filter>Header Files\ecs</Filter>
     </ClInclude>
     <ClInclude Include="include\ecs\Entity.hpp">
       <Filter>Header Files\ecs</Filter>
@@ -317,23 +335,20 @@
     <ClInclude Include="include\ecs\Core.hpp">
       <Filter>Header Files\ecs</Filter>
     </ClInclude>
-    <ClInclude Include="include\memory\ObjectPool.hpp">
-      <Filter>Header Files\memory</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ecs\component\ComponentTypeRegistry.hpp">
-      <Filter>Header Files\ecs\component</Filter>
-    </ClInclude>
     <ClInclude Include="include\ecs\component\Component.hpp">
-      <Filter>Header Files\ecs\component</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ecs\EcsBudget.h">
-      <Filter>Header Files\ecs</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ecs\component\ComponentType.hpp">
       <Filter>Header Files\ecs\component</Filter>
     </ClInclude>
     <ClInclude Include="include\ecs\component\ComponentTransform.hpp">
       <Filter>Header Files\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\component\ComponentType.hpp">
+      <Filter>Header Files\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\component\ComponentTypeRegistry.hpp">
+      <Filter>Header Files\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utility\Guid.hpp">
+      <Filter>Header Files\utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
