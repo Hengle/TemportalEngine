@@ -235,6 +235,7 @@
     <ClInclude Include="include\ecs\Core.hpp" />
     <ClInclude Include="include\ecs\EcsBudget.h" />
     <ClInclude Include="include\ecs\Entity.hpp" />
+    <ClInclude Include="include\ecs\ObjectManager.hpp" />
     <ClInclude Include="include\Engine.hpp" />
     <ClInclude Include="include\input\Action.hpp" />
     <ClInclude Include="include\input\Event.hpp" />

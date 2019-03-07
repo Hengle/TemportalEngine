@@ -24,7 +24,7 @@ private:
 		std::optional<uSize> mIndexNext;
 		ui8 mInUse;
 	};
-	
+
 	uSize mObjectCount;
 	
 	std::optional<uSize> mIndexHeadFree;

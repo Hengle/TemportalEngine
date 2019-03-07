@@ -6,6 +6,7 @@
 #include "input/Queue.hpp"
 #include "network/client/ServiceClient.hpp"
 #include "network/server/ServiceServer.hpp"
+#include "ecs/Core.hpp"
 
 using namespace engine;
 
@@ -69,10 +70,14 @@ Engine::Engine(void* memoryManager)
 	LogEngineInfo("Creating Engine");
 	this->mpNetworkService = nullptr;
 	mpInputQueue = this->alloc<input::Queue>(&inputQueueListener);
+	mpEcsCore = this->alloc<ecs::Core>(this);
 }
 
 Engine::~Engine()
 {
+	this->dealloc(mpEcsCore);
+	this->dealloc(mpInputQueue);
+
 	this->destroyWindow();
 	this->terminateDependencies();
 	LogEngineInfo("Engine Destroyed");
@@ -138,7 +143,7 @@ void Engine::destroyWindow()
 	if (this->hasWindow() && mpWindowGame->isValid())
 	{
 		mpWindowGame->destroy();
-		this->dealloc(&mpWindowGame);
+		this->dealloc(mpWindowGame);
 	}
 }
 

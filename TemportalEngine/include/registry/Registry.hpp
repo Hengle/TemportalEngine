@@ -50,6 +50,11 @@ public:
 		return true;
 	}
 
+	uSize const getItemCount() const
+	{
+		return mItemCount;
+	}
+
 	std::optional<TValue> operator[](RegistryIdentifier const & packetId) const
 	{
 		return at(packetId);

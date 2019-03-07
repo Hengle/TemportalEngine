@@ -4,6 +4,9 @@
 // PCH ------------------------------------------------------------------------
 #include "TemportalEnginePCH.hpp"
 
+// Parents --------------------------------------------------------------------
+#include "registry/RegistryItem.hpp"
+
 // Engine ---------------------------------------------------------------------
 #include "types/integer.h"
 #include "utility/Guid.hpp"

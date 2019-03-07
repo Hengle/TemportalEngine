@@ -6,6 +6,7 @@
 
 // Engine ---------------------------------------------------------------------
 #include "utility/Guid.hpp"
+#include "types/integer.h"
 
 // ----------------------------------------------------------------------------
 NS_ECS
@@ -31,9 +32,6 @@ private:
 
 	// Operations -------------------------------------------------------------
 private:
-
-	/** Create a null-entity (invalid) */
-	Entity();
 	
 	/** Initialize the entity with a unique identifier. */
 	void initialize(utility::Guid const &id);
@@ -42,6 +40,9 @@ private:
 	void markForDestruction();
 
 public:
+
+	/** Create a null-entity (invalid) */
+	Entity();
 
 	utility::Guid const getId() const;
 

@@ -9,7 +9,6 @@
 #include "network/common/Service.hpp"
 #include <optional>
 #include <typeinfo>
-#include "ecs/Core.hpp"
 
 #include "logging/Logger.hpp"
 
@@ -18,6 +17,10 @@ namespace input
 {
 	class Queue;
 }
+
+NS_ECS
+class Core;
+NS_END
 
 NS_ENGINE
 
@@ -50,6 +53,8 @@ private:
 	dependency::SDL mpDepGlfw[1];
 
 	bool mIsRunning;
+
+	ecs::Core *mpEcsCore;
 
 	Window *mpWindowGame;
 	input::InputWatcher mpInputWatcher[1];
@@ -84,12 +89,12 @@ public:
 	}
 
 	template <typename TDealloc>
-	void dealloc(TDealloc **ptrRef)
+	void dealloc(TDealloc* &ptrRef)
 	{
-		if (*ptrRef != nullptr)
+		if (ptrRef != nullptr)
 		{
-			(*ptrRef)->TDealloc::~TDealloc();
-			this->dealloc(ptrRef);
+			ptrRef->TDealloc::~TDealloc();
+			this->dealloc((void**)&ptrRef);
 		}
 	}
 

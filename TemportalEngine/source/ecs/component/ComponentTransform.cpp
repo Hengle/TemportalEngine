@@ -2,11 +2,11 @@
 
 using namespace ecs;
 
-ComponentTypeIndex ComponentTransform::IndexIdentifier = -1;
+RegistryIdentifier ComponentTransform::Identification = std::nullopt;
 
 ComponentTransform::ComponentTransform()
 {
 	mPosition = math::Vector3::ZERO;
 	mRotation = math::QuaternionIdentity;
-	mScale = { 1, 1, 1 };
+	mScale = { 1.0f, 1.0f, 1.0f };
 }

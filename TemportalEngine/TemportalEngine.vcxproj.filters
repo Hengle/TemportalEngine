@@ -350,5 +350,8 @@
     <ClInclude Include="include\utility\Guid.hpp">
       <Filter>Header Files\utility</Filter>
     </ClInclude>
+    <ClInclude Include="include\ecs\ObjectManager.hpp">
+      <Filter>Header Files\ecs</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

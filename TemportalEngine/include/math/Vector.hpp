@@ -10,6 +10,7 @@
 #include <cmath>
 #include <string.h> // memset/memcpy
 #include <type_traits>
+#include <array>
 
 // Engine ---------------------------------------------------------------------
 #include "types/integer.h"
@@ -72,7 +73,9 @@ public:
 	*/
 	constexpr Vector(std::initializer_list<TValue> values)
 	{
-		std::copy(values.begin(), values.end(), mValues);
+		uSize i = 0;
+		for (auto it = values.begin(); it != values.end(); ++it, ++i)
+			mValues[i] = *it;
 	}
 
 	/**
@@ -126,9 +129,9 @@ public:
 	* Copies data to an array with length equal to dimension count.
 	* Inverse of Vector(TValue[]) constructor.
 	*/
-	constexpr void toArray(TValue out[TDimension]) const
+	constexpr void toArray(TValue *out) const
 	{
-		memcpy_s(out, TDimension, mValues, TDimension);
+		memcpy(out, mValues, TDimension * sizeof(TValue));
 	}
 
 	/**
