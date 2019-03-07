@@ -1,5 +1,5 @@
-#ifndef NETWORK_RAKNET_HPP
-#define NETWORK_RAKNET_HPP
+#ifndef TE_NETWORK_RAKNET_HPP
+#define TE_NETWORK_RAKNET_HPP
 
 #include <RakNet/WindowsIncludes.h>
 #include <Windows.h>
