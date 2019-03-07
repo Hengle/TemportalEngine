@@ -97,6 +97,12 @@
     <Filter Include="Source Files\utility">
       <UniqueIdentifier>{09937f00-5361-4233-919a-395710477b87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ecs\system">
+      <UniqueIdentifier>{55607618-8c05-45df-8fd5-0fee5f256bb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ecs\system">
+      <UniqueIdentifier>{883911ac-2e13-4136-922a-b936aad17f63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Window.cpp">
@@ -191,6 +197,12 @@
     </ClCompile>
     <ClCompile Include="source\utility\Guid.cpp">
       <Filter>Source Files\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ecs\system\System.cpp">
+      <Filter>Source Files\ecs\system</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ecs\system\SystemPhysics.cpp">
+      <Filter>Source Files\ecs\system</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -352,6 +364,12 @@
     </ClInclude>
     <ClInclude Include="include\ecs\ObjectManager.hpp">
       <Filter>Header Files\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\system\System.hpp">
+      <Filter>Header Files\ecs\system</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ecs\system\SystemPhysics.hpp">
+      <Filter>Header Files\ecs\system</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

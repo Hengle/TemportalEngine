@@ -199,6 +199,8 @@
     <ClCompile Include="source\ecs\component\ComponentTypeRegistry.cpp" />
     <ClCompile Include="source\ecs\Core.cpp" />
     <ClCompile Include="source\ecs\Entity.cpp" />
+    <ClCompile Include="source\ecs\system\System.cpp" />
+    <ClCompile Include="source\ecs\system\SystemPhysics.cpp" />
     <ClCompile Include="source\Engine.cpp" />
     <ClCompile Include="source\input\InputWatcher.cpp" />
     <ClCompile Include="source\input\Queue.cpp" />
@@ -236,6 +238,8 @@
     <ClInclude Include="include\ecs\EcsBudget.h" />
     <ClInclude Include="include\ecs\Entity.hpp" />
     <ClInclude Include="include\ecs\ObjectManager.hpp" />
+    <ClInclude Include="include\ecs\system\System.hpp" />
+    <ClInclude Include="include\ecs\system\SystemPhysics.hpp" />
     <ClInclude Include="include\Engine.hpp" />
     <ClInclude Include="include\input\Action.hpp" />
     <ClInclude Include="include\input\Event.hpp" />

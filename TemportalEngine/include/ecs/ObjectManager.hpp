@@ -55,7 +55,7 @@ public:
 		this->mpMutex->unlock();
 	}
 
-	std::optional<TObject*> const getObjectWithId(utility::Guid const &id) const
+	std::optional<TObject*> const getObjectWithId(utility::Guid const &id)
 	{
 		if (!id.isValid()) return std::nullopt;
 
@@ -67,6 +67,11 @@ public:
 		}
 
 		return std::nullopt;
+	}
+
+	bool const getNext(TObject* &obj, uSize &index)
+	{
+		return mpPool->getNext(obj, index);
 	}
 
 };

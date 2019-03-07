@@ -5,11 +5,13 @@
 #include "TemportalEnginePCH.hpp"
 
 #include <cassert>
+#include <optional>
 
 // Engine ---------------------------------------------------------------------
 #include "ecs/Entity.hpp"
 #include "ecs/component/ComponentTypeRegistry.hpp"
 #include "types/real.h"
+#include "ecs/ObjectManager.hpp"
 
 NS_ENGINE
 class Engine;
@@ -26,9 +28,12 @@ class ObjectManager;
 */
 class TEMPORTALENGINE_API Core
 {
+public:
+	typedef ObjectManager<Entity, ECS_MAX_ENTITY_COUNT> EntityManager;
+
 private:
 
-	ObjectManager<Entity, ECS_MAX_ENTITY_COUNT> *mpEntityPool;
+	EntityManager *mpEntityPool;
 
 	ComponentTypeRegistry mpComponentTypeRegistry[1];
 	void* mpaComponentPools[ECS_MAX_UNIQUE_COMPONENT_TYPES];
@@ -40,6 +45,16 @@ public:
 	void updateTick(f32 const &deltaTime);
 
 	Entity* const createEntity();
+	EntityManager* getEntityManager() const;
+
+	template <class TComponent>
+	std::optional<TComponent*> getComponent(utility::Guid const &id) const
+	{
+		assert(TComponent::Identification.has_value());
+		ObjectManager<TComponent, ECS_MAX_ENTITY_COUNT>* manager =
+			(ObjectManager<TComponent, ECS_MAX_ENTITY_COUNT>*)mpaComponentPools[TComponent::Identification.value()];
+		return manager->getObjectWithId(id);
+	}
 
 	template <class TComponent>
 	TComponent* createComponent()

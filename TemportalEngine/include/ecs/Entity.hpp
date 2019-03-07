@@ -7,6 +7,7 @@
 // Engine ---------------------------------------------------------------------
 #include "utility/Guid.hpp"
 #include "types/integer.h"
+#include "registry/RegistryItem.hpp"
 
 // ----------------------------------------------------------------------------
 NS_ECS
@@ -49,6 +50,15 @@ public:
 	/** Returns true if this entity has been marked for destruction. */
 	bool const isPendingDestruction() const;
 	
+	// TODO: Move to cpp
+	bool const hasComponent(RegistryIdentifier componentType) const { return mIdComponents[componentType.value()].isValid(); }
+
+	// TODO: Move to cpp
+	utility::Guid const& getComponentId(RegistryIdentifier const& componentType) const { return mIdComponents[componentType.value()]; }
+
+	// TODO: Move to cpp
+	bool const operator==(Entity const *other) const { return mId == other->getId(); }
+
 };
 
 NS_END

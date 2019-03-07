@@ -149,7 +149,7 @@ public:
 		ptr = nullptr;
 	}
 
-	bool getNext(TObject* &obj, uSize &index)
+	bool const getNext(TObject* &obj, uSize &index)
 	{
 		// there is nothing allocated
 		if (mObjectCount == ObjectMaxCount)
@@ -157,32 +157,32 @@ public:
 			return false;
 		}
 		// This is the first iteration (object is null)
-		else if (*obj == nullptr)
+		else if (obj == nullptr)
 		{
 			// Get the first object
-			*obj = mpObjects[mIndexHeadUsed];
+			obj = &mpObjects[mIndexHeadUsed.value()];
 			// It is the first index
-			*i = 0;
+			index = 0;
 			return true;
 		}
 		// This is some in-between iteration (next index is less than the current count)
-		else if (*i + 1 < mObjectCount)
+		else if (index + 1 < mObjectCount)
 		{
 			// get the current object header
-			Node *header = &mpNodes[*i];
+			Node *header = &mpNodes[index];
 			// And get the next active object
 			// this should always be valid because we are not at the end of the list
-			*obj = &mpObjects[header->mIndexNext.value()];
-			(*i)++;
+			obj = &mpObjects[header->mIndexNext.value()];
+			index++;
 			return true;
 		}
 		// This is the last iteration
 		else
 		{
 			// there are no more active objects
-			*obj = 0;
+			obj = 0;
 			// we are at the max count
-			*i = ObjectMaxCount;
+			index = ObjectMaxCount;
 			return false;
 		}
 	}

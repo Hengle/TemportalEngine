@@ -43,8 +43,6 @@ Core::Core(engine::Engine *pEngine)
 	}
 	memset(mpaComponentPools + typeCount, 0, sizeof(void*) * (ECS_MAX_UNIQUE_COMPONENT_TYPES - typeCount));
 
-
-
 }
 
 Core::~Core()
@@ -58,4 +56,9 @@ void Core::updateTick(f32 const & deltaTime)
 Entity* const Core::createEntity()
 {
 	return this->mpEntityPool->create();
+}
+
+Core::EntityManager* Core::getEntityManager() const
+{
+	return mpEntityPool;
 }
